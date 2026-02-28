@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Bible Study — 1 Corinthians 13:4-7</title>
+<meta name="study-title" content="Saturday — Love Is a Decision, Not a Feeling">
+<meta name="study-series" content="1 Corinthians · The Love Chapter">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment:      #f5efe0;
+    --parchment-dark: #ede3cc;
+    --parchment-deep: #e0d4b8;
+    --ink:            #1e1710;
+    --ink-soft:       #3a2f22;
+    --ink-muted:      #6b5d4a;
+    --forest:         #2d5a3d;
+    --forest-mid:     #3d7a54;
+    --forest-light:   #5a9e72;
+    --forest-pale:    #c8dfc8;
+    --emerald:        #1a4a2e;
+    --gold:           #b8860b;
+    --gold-light:     #d4a820;
+    --gold-pale:      #f0d870;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a2e1e;
+    background-image:
+      radial-gradient(ellipse at 15% 10%, rgba(45,90,61,0.4) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 90%, rgba(26,74,46,0.3) 0%, transparent 55%);
+    font-family: 'Lato', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 20px 14px 60px;
+  }
+
+  .page { max-width: 680px; margin: 0 auto; }
+
+  .header {
+    background: var(--parchment-dark);
+    border-radius: 2px 2px 0 0;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--forest);
+    border-left: 3px solid var(--forest);
+    border-right: 3px solid var(--forest);
+  }
+
+  .header-knotwork {
+    height: 18px;
+    background: var(--forest);
+    position: relative;
+    overflow: hidden;
+  }
+  .header-knotwork::after {
+    content: '✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦ ✦';
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+    color: var(--gold-light);
+    font-size: 7px;
+    letter-spacing: 4px;
+    opacity: 0.6;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .header-inner {
+    padding: 28px 24px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .header-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      0deg, transparent, transparent 28px,
+      rgba(45,90,61,0.04) 28px, rgba(45,90,61,0.04) 29px
+    );
+    pointer-events: none;
+  }
+
+  .header-eyebrow {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--forest-mid);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .header-eyebrow::before { content: ''; display: block; height: 1px; width: 40px; background: linear-gradient(90deg, transparent, var(--forest-mid)); }
+  .header-eyebrow::after  { content: ''; display: block; height: 1px; width: 40px; background: linear-gradient(90deg, var(--forest-mid), transparent); }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 5.5vw, 34px);
+    font-weight: 700;
+    color: var(--emerald);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .header-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-muted);
+    margin-bottom: 18px;
+  }
+
+  .celtic-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 8px 0 16px;
+  }
+  .celtic-divider span { display: block; height: 1px; width: 55px; background: linear-gradient(90deg, transparent, var(--forest-light), transparent); }
+  .celtic-divider .symbol { font-size: 20px; color: var(--forest); line-height: 1; }
+
+  .date-badge {
+    display: inline-block;
+    background: var(--forest);
+    color: var(--gold-pale);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border: 1px solid var(--forest-light);
+    position: relative;
+  }
+  .date-badge::before, .date-badge::after {
+    content: '◆';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 8px;
+    color: var(--gold-light);
+  }
+  .date-badge::before { left: -14px; }
+  .date-badge::after  { right: -14px; }
+
+  .card {
+    background: var(--parchment);
+    border-left: 3px solid var(--forest);
+    border-right: 3px solid var(--forest);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .section {
+    padding: 24px 22px;
+    border-bottom: 1px solid rgba(45,90,61,0.15);
+    position: relative;
+  }
+  .section:last-child { border-bottom: none; }
+  .section::before {
+    content: '◈';
+    position: absolute;
+    top: 8px; right: 10px;
+    font-size: 10px;
+    color: var(--forest-pale);
+    opacity: 0.6;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .section-emoji { font-size: 18px; line-height: 1; }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--forest-mid);
+    white-space: nowrap;
+  }
+  .section-title-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--forest-pale), transparent); }
+
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--emerald);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .section p {
+    font-size: 15px;
+    line-height: 1.78;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .section p:last-child { margin-bottom: 0; }
+
+  .tldr-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+  .tldr-list li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+  .tldr-list li > span:not(.bullet-icon) { flex: 1; }
+  .bullet-icon { color: var(--forest-mid); font-size: 12px; margin-top: 3px; flex-shrink: 0; }
+
+  .verse-block {
+    margin: 16px 0;
+    background: var(--parchment-dark);
+    border-left: 4px solid var(--forest);
+    border-radius: 0 2px 2px 0;
+    padding: 14px 16px 14px 18px;
+  }
+  .verse-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .verse-ref {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .bible-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--forest);
+    color: var(--gold-pale);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    text-decoration: none;
+    border: 1px solid var(--forest-light);
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .bible-btn:hover { background: var(--emerald); }
+
+  .verse-text {
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    line-height: 1.78;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .verse-translation {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    color: var(--ink-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .verse-commentary {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    padding-top: 10px;
+    border-top: 1px dashed rgba(45,90,61,0.25);
+  }
+
+  .section-context  { background: linear-gradient(135deg, #eee8d5, #e5ddc0); }
+  .section-christ   { background: linear-gradient(135deg, #e8efe8, #d8e8d8); border-left: 4px solid var(--forest); }
+  .section-prayer   { background: var(--parchment-dark); }
+  .section-prayer p {
+    font-family: 'Lora', serif;
+    font-size: 15.5px;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .section-application { background: linear-gradient(135deg, #e8f0e8, #daeada); }
+  .action-box {
+    background: var(--forest);
+    color: var(--parchment);
+    padding: 16px 18px;
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-top: 8px;
+    border: 1px solid var(--forest-light);
+    position: relative;
+  }
+  .action-box::before {
+    content: '✦';
+    position: absolute;
+    top: 8px; right: 10px;
+    color: var(--gold-light);
+    font-size: 12px;
+    opacity: 0.6;
+  }
+  .section-discussion { background: linear-gradient(135deg, #eaede8, #dfe5d8); }
+  .discussion-q {
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--emerald);
+  }
+
+  .bible-app-strip {
+    background: var(--forest);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 2px solid var(--gold);
+    border-left: 3px solid var(--forest);
+    border-right: 3px solid var(--forest);
+  }
+  .strip-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    font-weight: 600;
+  }
+  .strip-apps { display: flex; gap: 8px; flex-wrap: wrap; }
+  .app-link {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(212,168,32,0.4);
+    color: var(--gold-pale);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .app-link:hover { background: rgba(255,255,255,0.15); }
+
+  .footer {
+    text-align: center;
+    padding: 18px 20px;
+    background: var(--emerald);
+    border-radius: 0 0 2px 2px;
+    border: 3px solid var(--forest);
+    border-top: none;
+  }
+  .footer-knotwork {
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--forest-light) 0px, var(--forest-light) 3px,
+      transparent 3px, transparent 8px,
+      var(--gold) 8px, var(--gold) 10px,
+      transparent 10px, transparent 15px
+    );
+    opacity: 0.3;
+    margin-bottom: 10px;
+  }
+  .footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-pale);
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    body { padding: 0 0 48px; }
+    .header-inner { padding: 22px 16px 18px; }
+    .section { padding: 20px 16px; }
+    .bible-app-strip { flex-direction: column; align-items: flex-start; }
+    .date-badge::before, .date-badge::after { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-knotwork"></div>
+    <div class="header-inner">
+      <div class="header-eyebrow">Daily Bible Study</div>
+      <h1>❤️ Saturday — Love Is a Decision, Not a Feeling</h1>
+      <div class="header-subtitle">1 Corinthians · The Love Chapter</div>
+      <div class="celtic-divider">
+        <span></span>
+        <div class="symbol">☩</div>
+        <span></span>
+      </div>
+      <div class="date-badge">February 28, 2026</div>
+    </div>
+    <div class="header-knotwork"></div>
+  </div>
+
+  <div class="card">
+
+    <!-- TL;DR -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-emoji">📌</span>
+        <span class="section-title">TL;DR</span>
+        <div class="section-title-line"></div>
+      </div>
+      <ul class="tldr-list">
+        <li><span class="bullet-icon">◆</span><span> The kind of love Paul describes in 1 Corinthians 13:4–7 is <em>agape</em> — a willful, self-giving love that acts regardless of how it feels, rooted entirely in commitment to another's good.</span></li>
+        <li><span class="bullet-icon">◆</span><span> The problem: every natural human instinct pulls toward self-preservation, self-promotion, and keeping score — the exact opposite of everything Paul lists here.</span></li>
+        <li><span class="bullet-icon">◆</span><span> The solution: agape love is not something we manufacture — it is something God pours into us, and we then choose to extend outward to others.</span></li>
+        <li><span class="bullet-icon">◆</span><span> The challenge: Paul's love passage reads beautifully at weddings but lands like a verdict in everyday life. Today's call is to pick one quality from this list and live it on purpose.</span></li>
+      </ul>
+    </div>
+
+    <!-- CONTEXT -->
+    <div class="section section-context">
+      <div class="section-label">
+        <span class="section-emoji">🗺️</span>
+        <span class="section-title">Historical &amp; Cultural Context</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="section-heading">Written to a Church That Was Tearing Itself Apart</div>
+      <p>First Corinthians was not written to a spiritually mature, well-ordered congregation. It was written to a church in crisis. Corinth was one of the most cosmopolitan and morally complex cities in the Roman Empire — a port city where cultures, religions, and philosophies collided daily. The church there had fractured into factions loyal to different teachers (Paul, Apollos, Peter), was tolerating open sexual immorality, suing each other in civil courts, dividing over food offered to idols, and turning the Lord's Supper into a class-stratified meal where the wealthy ate well and the poor went hungry.</p>
+      <p>Into that chaos, Paul writes the most famous description of love in all of human literature — and it lands not as a wedding poem but as a rebuke. Chapters 12 and 14 surround chapter 13, and they deal with spiritual gifts: speaking in tongues, prophecy, healing. The Corinthians were competing over these gifts, using them to establish status. Paul's point is devastating in its simplicity: without love, none of it matters. Not tongues, not prophecy, not even martyrdom. Chapter 13 is not a break from the argument — it is the argument's heart.</p>
+    </div>
+
+    <!-- WALKTHROUGH -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-emoji">📖</span>
+        <span class="section-title">Chronological Walkthrough</span>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="verse-block">
+        <div class="verse-header">
+          <div class="verse-ref">1 Corinthians 13:1–3</div>
+          <a class="bible-btn" href="https://www.bible.com/bible/1713/1CO.13.1" target="_blank">☩ Open in Bible App</a>
+        </div>
+        <div class="verse-text">"If I speak human or angelic tongues but do not have love, I am a noisy gong or a clanging cymbal. If I have the gift of prophecy and understand all mysteries and all knowledge, and if I have all faith so that I can move mountains but do not have love, I am nothing. And if I give away all my possessions, and if I give over my body in order to boast but do not have love, I gain nothing."</div>
+        <div class="verse-translation">Christian Standard Bible · CSB</div>
+        <div class="verse-commentary">Paul establishes the stakes before he defines the terms. He runs through three categories the Corinthians valued most — supernatural speech (tongues), supernatural knowledge (prophecy), and spectacular sacrifice (giving everything, even dying) — and declares them all worthless without love. This is not hyperbole. Paul genuinely means that the most impressive spiritual activity, divorced from agape, produces nothing of eternal value. The word "nothing" (Greek: <em>ouden</em>) is absolute. It levels the spiritual playing field completely. No gift, no achievement, no sacrifice is a substitute for love.</div>
+      </div>
+
+      <div class="verse-block">
+        <div class="verse-header">
+          <div class="verse-ref">1 Corinthians 13:4</div>
+          <a class="bible-btn" href="https://www.bible.com/bible/1713/1CO.13.4" target="_blank">☩ Open in Bible App</a>
+        </div>
+        <div class="verse-text">"Love is patient, love is kind. Love does not envy, is not boastful, is not arrogant,"</div>
+        <div class="verse-translation">Christian Standard Bible · CSB</div>
+        <div class="verse-commentary">Notice that Paul does not say "love <em>feels</em> patient" — he says love <em>is</em> patient. Every attribute in this list is a verb in Greek, describing action and behavior, not emotion. The word for patient is <em>makrothumei</em> — literally "long-tempered," or "slow to anger," carrying the idea of absorbing difficulty and offense without retaliation. Kindness (<em>chrēsteuetai</em>) means actively doing good rather than merely refraining from harm. Envy (<em>zēloi</em>) in this context reflects a self-focused resentment of what others have. Boastfulness and arrogance — the Greek words picture someone who literally inflates themselves like a balloon. All four negatives were on display in the Corinthian church. Paul is holding a mirror to his readers.</div>
+      </div>
+
+      <div class="verse-block">
+        <div class="verse-header">
+          <div class="verse-ref">1 Corinthians 13:5</div>
+          <a class="bible-btn" href="https://www.bible.com/bible/1713/1CO.13.5" target="_blank">☩ Open in Bible App</a>
+        </div>
+        <div class="verse-text">"…is not rude, is not self-seeking, is not irritable, and does not keep a record of wrongs."</div>
+        <div class="verse-translation">Christian Standard Bible · CSB</div>
+        <div class="verse-commentary">Four more behavioral descriptions, each one a dagger for the self-centered heart. "Self-seeking" (<em>ta heautēs</em>) means love does not pursue its own interests at others' expense. "Irritable" (<em>paroxunetai</em>) describes someone quickly provoked — a short fuse. But the most striking phrase here is "does not keep a record of wrongs." In Greek, this is a single bookkeeping word — <em>logizetai to kakon</em> — to count up, to calculate, to maintain a ledger of offenses. Agape love does not maintain that ledger. It does not tally injuries to be paid back later. This is extraordinarily countercultural — both in first-century Corinth and in twenty-first-century life.</div>
+      </div>
+
+      <div class="verse-block">
+        <div class="verse-header">
+          <div class="verse-ref">1 Corinthians 13:6–7</div>
+          <a class="bible-btn" href="https://www.bible.com/bible/1713/1CO.13.6" target="_blank">☩ Open in Bible App</a>
+        </div>
+        <div class="verse-text">"…finds no joy in unrighteousness but rejoices in the truth. It bears all things, believes all things, hopes all things, endures all things."</div>
+        <div class="verse-translation">Christian Standard Bible · CSB</div>
+        <div class="verse-commentary">The passage crescendos here in a fourfold statement that is nearly impossible to overstate. "Bears all things" (<em>stegei</em>) means to cover or shelter — love acts as a roof over the relationship, protecting it from the elements. "Believes all things" does not mean love is gullible, but that it chooses to extend trust and good faith rather than defaulting to suspicion. "Hopes all things" means love refuses to concede the future even when the present is painful. And "endures all things" (<em>hupomenei</em>) is the capstone — the Greek word for active, persevering endurance under pressure. Not passive resignation, but steadfast refusal to give up. These four "alls" are the posture of agape love toward another person across the entire arc of a relationship.</div>
+      </div>
+
+    </div>
+
+    <!-- STREET LEVEL -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-emoji">🎯</span>
+        <span class="section-title">Street Level</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="section-heading">The Mechanic Who Works on Your Car for Free — Every Time</div>
+      <p>Picture a master mechanic — someone who genuinely knows engines, who could charge top dollar for his skill. But he has a neighbor, a genuinely difficult person: always complaining, rarely grateful, occasionally hostile. One winter morning the neighbor's car won't start. The mechanic walks over, diagnoses the problem in ten minutes, fixes it in thirty, and refuses to take a dime. The neighbor grunts, drives away. No thank you. Next month — same thing. Year after year, the mechanic shows up, does the work, asks for nothing in return. Not because he doesn't notice the ingratitude. Not because it doesn't cost him. He notices. It costs him. He comes anyway.</p>
+      <p>That's agape operating in a zip code you recognize. It is not a feeling that wells up effortlessly. It is a decision made in advance — before the neighbor's car breaks down, before the ingratitude, before the cost is calculated. Paul's list in 1 Corinthians 13 is not a description of how love <em>feels</em>. It's a job description for what love <em>does</em> — day after day, regardless of the return.</p>
+    </div>
+
+    <!-- TODAY'S WORLD -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-emoji">🌍</span>
+        <span class="section-title">Today's World, Ancient Truth</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="section-heading">The Long Goodbye: What Dementia Caregivers Teach Us About Agape</div>
+      <p>David Gunter met his wife Peggy when she was in seventh grade and he was a young janitor about to be drafted to Vietnam. For decades, their marriage was a full and ordinary life. Then, at 57, Peggy was diagnosed with younger-onset dementia. What followed was years of David becoming her full-time caregiver — managing her care, attending support groups, participating in clinical trials, and learning to love someone who was slowly losing the ability to recognize the life they had built together. The Alzheimer's Association, which shared his story in 2025, called him simply "a loving husband of 50 years navigating his wife's dementia."</p>
+      <p>David's story is one of millions. Across the United States, dementia caregivers — often spouses who have been married for decades — practice patient, bearing, enduring, hoping love in circumstances that would break most people. They answer the same question twenty times in an hour without irritation. They serve someone who can no longer say thank you, who may not even remember their name. They keep no record of what this costs them. Researchers describe it as "the long goodbye" — grieving someone who is still present. What they are living, day by day, is a walking commentary on 1 Corinthians 13:7. Love that bears all things. Believes all things. Hopes all things. Endures all things. They didn't feel their way into it. They decided.</p>
+    </div>
+
+    <!-- CHRIST CONNECTION -->
+    <div class="section section-christ">
+      <div class="section-label">
+        <span class="section-emoji">✝️</span>
+        <span class="section-title">The Christ Connection</span>
+        <div class="section-title-line"></div>
+      </div>
+      <p>One of the oldest devotional exercises with this passage is to substitute the word "love" with the name "Jesus" — and read it again. Jesus is patient. Jesus is kind. Jesus does not envy or boast. Jesus is not arrogant or rude. Jesus does not keep a record of wrongs. Jesus bears all things, believes all things, hopes all things, endures all things. It works — because Paul isn't just defining love philosophically. He is describing the character of God as expressed through the person of Jesus Christ.</p>
+      <p>The Cross is agape at its fullest expression. On it, Jesus bore every sin, believed in the Father's plan when it cost Him everything, hoped in the resurrection when death was closing in, and endured the abandonment of God on behalf of people who would still reject Him. He did not keep a ledger of our offenses — He nailed it to the cross (Colossians 2:14). Every quality Paul lists in 1 Corinthians 13 was bled out at Calvary. And the same Spirit who raised Jesus from the dead now lives in every believer — which is why Paul can call us to this kind of love without absurdity. We do not love this way from our own reserves. We love because He first loved us (1 John 4:19).</p>
+    </div>
+
+    <!-- APPLICATION -->
+    <div class="section section-application">
+      <div class="section-label">
+        <span class="section-emoji">✅</span>
+        <span class="section-title">Personal Application Challenge</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="action-box">
+        Read the list in 1 Corinthians 13:4–7 slowly, and replace the word "love" with your own name. Notice where it stops being true. Pick the one attribute that stings the most — the one where your name doesn't fit. That is your focus today. Choose one specific person in your life and practice that single quality toward them intentionally before the day ends. Not as a feeling. As a decision.
+      </div>
+    </div>
+
+    <!-- CONNECTION TO YESTERDAY -->
+    <div class="section">
+      <div class="section-label">
+        <span class="section-emoji">🔁</span>
+        <span class="section-title">Connection to Yesterday</span>
+        <div class="section-title-line"></div>
+      </div>
+      <p>Yesterday we stood before the most famous verse in the Bible — John 3:16 — and meditated on the God who loved the world not as a feeling, but as a decisive, costly act: He gave. Today, 1 Corinthians 13 takes that same theological foundation and presses it into the texture of everyday human relationships. John 3:16 shows us what God's agape looks like from heaven's side. First Corinthians 13 shows us what agape is meant to look like from our side — toward the people in our kitchens, our workplaces, our pews. The love we are called to live in verse 4–7 is only possible because the love described in John 3:16 came first. We give what we have received.</p>
+    </div>
+
+    <!-- PRAYER -->
+    <div class="section section-prayer">
+      <div class="section-label">
+        <span class="section-emoji">🙏</span>
+        <span class="section-title">Closing Prayer</span>
+        <div class="section-title-line"></div>
+      </div>
+      <p>Lord, I just read the most beautiful description of love ever written — and I know it was also a description of You. Patient. Kind. Not keeping score. Bearing everything. And I felt the gap between what love looks like in Paul's words and what it looks like in my actual life. I get irritated. I keep mental tallies. I grow tired of extending grace to the same people over the same things. Forgive me for that. And remind me that I am not trying to love people out of my own reserves — those run dry fast. I am trying to love them out of what You have poured into me. Fill me again today. Help me to love one person well. Not perfectly — just genuinely, on purpose, more than I would have without You. In Jesus' name, Amen.</p>
+    </div>
+
+    <!-- DISCUSSION -->
+    <div class="section section-discussion">
+      <div class="section-label">
+        <span class="section-emoji">💬</span>
+        <span class="section-title">Discussion Question</span>
+        <div class="section-title-line"></div>
+      </div>
+      <div class="discussion-q">"Paul says love 'does not keep a record of wrongs.' Is there a relationship in your life — past or present — where you've been maintaining that ledger without realizing it? What would it look like to close the book?"</div>
+    </div>
+
+  </div><!-- /card -->
+
+  <!-- BIBLE APP STRIP -->
+  <div class="bible-app-strip">
+    <div class="strip-label">☩ Read today's passages in full</div>
+    <div class="strip-apps">
+      <a class="app-link" href="https://www.bible.com/bible/1713/1CO.13.1" target="_blank">YouVersion · 1 Cor 13</a>
+      <a class="app-link" href="https://www.biblegateway.com/passage/?search=1+Corinthians+13&version=CSB" target="_blank">Bible Gateway</a>
+      <a class="app-link" href="https://www.esv.org/1+Corinthians+13/" target="_blank">ESV Bible</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-knotwork"></div>
+    <p>Daily Bible Study · Shared with ✝ Love</p>
+  </div>
+
+</div>
+</body>
+</html>
