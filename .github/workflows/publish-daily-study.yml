@@ -28,8 +28,8 @@ jobs:
           if [ -n "${{ github.event.inputs.date_override }}" ]; then
             TARGET="${{ github.event.inputs.date_override }}"
           else
-            # Tomorrow's date in YYYY-MM-DD format
-            TARGET=$(date -u -d "tomorrow" '+%Y-%m-%d')
+            # Today's UTC date (already tomorrow in Central Time when cron fires at 02:00 UTC)
+            TARGET=$(date -u '+%Y-%m-%d')
           fi
           echo "target=$TARGET" >> $GITHUB_OUTPUT
           echo "filename=${TARGET}.html" >> $GITHUB_OUTPUT
