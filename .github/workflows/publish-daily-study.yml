@@ -2,60 +2,38 @@ name: Publish Daily Bible Study
 
 on:
   schedule:
-    # Runs at 9:00 PM CT (02:00 UTC) every night
-    # Note: GitHub Actions uses UTC and does not adjust for daylight saving time.
-    # During CST (Nov–Mar), this runs at 8:00 PM CT. Update to '0 3 * * *' in winter if needed.
-    - cron: '0 2 * * *'
+    # 10 PM UTC = 5 PM CDT (Central Daylight) / 4 PM CST (Central Standard)
+    - cron: '0 22 * * *'
   workflow_dispatch:
-    # Also allows manual trigger from GitHub Actions tab
-    inputs:
-      date_override:
-        description: 'Publish file for this date (YYYY-MM-DD). Leave blank to use tomorrow.'
-        required: false
-        type: string
+
+permissions:
+  contents: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Determine target date
-        id: date
+      - name: Publish tomorrow's study from staging
         run: |
-          if [ -n "${{ github.event.inputs.date_override }}" ]; then
-            TARGET="${{ github.event.inputs.date_override }}"
-          else
-            # Today's UTC date (already tomorrow in Central Time when cron fires at 02:00 UTC)
-            TARGET=$(date -u '+%Y-%m-%d')
-          fi
-          echo "target=$TARGET" >> $GITHUB_OUTPUT
-          echo "filename=${TARGET}.html" >> $GITHUB_OUTPUT
-          echo "Target date: $TARGET"
+          # At 10 PM UTC, tomorrow in Central Time is +1 day in UTC
+          TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d)
+          FILE="staging/${TOMORROW}.html"
 
-      - name: Check for staged file
-        id: check
-        run: |
-          FILE="staging/${{ steps.date.outputs.filename }}"
           if [ -f "$FILE" ]; then
-            echo "found=true" >> $GITHUB_OUTPUT
-            echo "Found: $FILE"
-          else
-            echo "found=false" >> $GITHUB_OUTPUT
-            echo "No staged file for ${{ steps.date.outputs.target }} — nothing to publish."
-          fi
+            echo "Publishing ${TOMORROW}.html"
+            cp "$FILE" "${TOMORROW}.html"
+            rm "$FILE"
 
-      - name: Move file to root and commit
-        if: steps.check.outputs.found == 'true'
-        run: |
-          FILENAME="${{ steps.date.outputs.filename }}"
-          mv "staging/$FILENAME" "$FILENAME"
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add "$FILENAME"
-          git rm "staging/$FILENAME" 2>/dev/null || true
-          git commit -m "Publish daily study: $FILENAME"
-          git push
-          echo "Published $FILENAME to repo root."
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add "${TOMORROW}.html"
+            git add "staging/"
+            git commit -m "Publish ${TOMORROW} daily study"
+            git push
+          else
+            echo "No file found for ${TOMORROW} in staging/"
+            exit 0
+          fi
