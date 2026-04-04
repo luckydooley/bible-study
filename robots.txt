@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://blessedcontent.github.io/bible-study/sitemap.xml
