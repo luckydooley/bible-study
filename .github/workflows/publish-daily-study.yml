@@ -18,7 +18,7 @@ jobs:
 
       - name: Publish tomorrow's study from staging
         run: |
-                      # At 8 PM UTC, tomorrow in Central Time is +1 day in UTC
+          # At 8 PM UTC, tomorrow in Central Time is +1 day in UTC
           TOMORROW=$(date -u -d "+1 day" +%Y-%m-%d)
           FILE="staging/${TOMORROW}.html"
 
